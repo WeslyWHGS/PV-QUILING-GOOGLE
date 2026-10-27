@@ -482,6 +482,73 @@ h1 strong, h2 strong, h3 strong { font-weight: 900; }
 
 .fixed-cta-inner { max-width: var(--max); margin: 0 auto; }
 
+/* ---------- Oferta especial (back redirect) ---------- */
+
+.special { display: flex; flex-direction: column; gap: 6.4px; padding: 3.2px 0; }
+.special p:not(:first-child) { margin-top: 12px; }
+
+.warning-bar {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: #ec1129;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: .02em;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink { 50% { opacity: .75; } }
+
+.strike { text-decoration: line-through; text-decoration-color: #ec1129; text-decoration-thickness: 2px; }
+
+.timer {
+  padding: 12px 16px;
+  border: 1px dashed #ec1129;
+  border-radius: var(--radius);
+  background: #ffe6e3;
+  color: #ec1129;
+  text-align: center;
+}
+
+.timer-label { font-size: 14px; font-weight: 600; }
+.timer-clock { font-size: 2.2rem; font-weight: 900; line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+.special-price { border-width: 2px; text-align: center; }
+.special-price .price-featured { background: #ec1129; }
+.special-price-body { padding: 16px 12px 18px; }
+.special-price-old { color: var(--muted); font-size: 15px; }
+.special-price-old + .special-price-old { margin-top: 2px; }
+.special-price-now { margin-top: 8px; color: #000; font-size: 15px; font-weight: 600; }
+
+.special-price-value {
+  color: var(--green);
+  font-size: 3.4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.special-price-value span { font-size: .45em; vertical-align: .9em; margin-right: 4px; }
+.special-price-tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: var(--theme);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pieces-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pieces-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid #ddd9df; border-radius: 8px; }
+
+.choice { display: grid; gap: 8px; }
+.choice .alert-body p { margin-top: 6px; }
+
+.quotes-list { display: grid; gap: 8px; }
+
 /* ---------- Desktop ---------- */
 
 @media (min-width: 768px) {
