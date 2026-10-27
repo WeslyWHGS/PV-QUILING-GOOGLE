@@ -2,8 +2,8 @@
   "use strict";
 
   // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-  // (deixe vazio "" para desativar)
-  var BACK_REDIRECT_LINK = "https://universodoquilling.lovable.app";
+  // DA ETAPA DE OFERTA (deixe vazio "" para desativar)
+  var BACK_REDIRECT_LINK = "oferta-especial.html";
 
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
   var progress = document.getElementById("progress");
@@ -47,6 +47,8 @@
     initSliders(step);
     if (step.hasAttribute("data-loading")) startLoading(step);
     if (step.querySelector("#fixedCta")) watchFixedCta();
+    // o back redirect só é ativado quando o lead chega na oferta
+    if (step === steps[steps.length - 1] && BACK_REDIRECT_LINK) setBackRedirect(BACK_REDIRECT_LINK);
   }
 
   /* ---------- Botões "continuar" ---------- */
@@ -272,7 +274,11 @@
 
   /* ---------- Back redirect ---------- */
 
+  var backRedirectOn = false;
+
   function setBackRedirect(url) {
+    if (backRedirectOn) return;
+    backRedirectOn = true;
     var target = url.trim() + (url.indexOf("?") > 0 ? "&" : "?") + document.location.search.replace("?", "").toString();
 
     history.pushState({}, "", location.href);
@@ -285,8 +291,6 @@
       }, 1);
     });
   }
-
-  if (BACK_REDIRECT_LINK) setBackRedirect(BACK_REDIRECT_LINK);
 
   /* ---------- Início ---------- */
 
